@@ -8,17 +8,16 @@ import IconButton from "@mui/material/IconButton";
 
 import { useState, useContext } from "react";
 
-import { DataContext } from "../../context/DataProvider";
+// import { DataContext } from "../../context/DataProvider";
 
 // Login Dialog page
-import LoginDialog from "../../pages/Login/loginDialog";
-import Profile from "../../pages/Login/Profile";
+// import LoginDialog from "../../pages/Login/loginDialog";
+// import Profile from "../../pages/Login/Profile";
 
 export default function ButtonAppBar() {
   const [open, setOpen] = useState(false);
-  
 
-  const { account, setAccount } = useContext(DataContext);
+  // const { account, setAccount } = useContext(DataContext);
 
   const openDialog = () => {
     setOpen(true);
@@ -35,7 +34,6 @@ export default function ButtonAppBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           ></IconButton>
-
           <Typography
             color={"black"}
             fontSize={36}
@@ -45,27 +43,18 @@ export default function ButtonAppBar() {
           >
             spendWise
           </Typography>
-
-          {account ? (
-              <Button
-              style={{ marginRight: 60}}
-              variant="contained"
-            >
-              <Profile account={account} setAccount={setAccount}/>
-            </Button>
-          ) : (
-            <Button
-              style={{ marginRight: 60 }}
-              variant="contained"
-              color="primary"
-              onClick={openDialog}
-            >
-              Login
-            </Button>
-          )}
+          <Button
+            style={{ marginRight: 60 }}
+            variant="contained"
+            color="primary"
+            onClick={openDialog}
+          >
+            Login
+          </Button>
+          )
         </Toolbar>
       </AppBar>
-      <LoginDialog open={open} setOpen={setOpen} />
+      {/* <LoginDialog open={open} setOpen={setOpen} /> */}
     </Box>
   );
 }
