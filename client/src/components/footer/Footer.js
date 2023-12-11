@@ -1,70 +1,33 @@
-import React, { useContext } from "react";
-import { Button } from "@mui/material";
-import { useState } from "react";
+import React from 'react';
+import './Footer.css';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Logo from '../image/logo1.png'
 
-// Data Provider
-import { DataContext } from "../../context/DataProvider";
-
-// CSS File
-import "./Cover.css";
-
-// Login Dialog & Dashboard page
-import LoginDialog from "../../pages/Login/loginDialog";
-import Dashboard from "../../pages/dashboard/Dashboard";
-
-export default function Cover() {
-  const [open, setOpen] = useState(false);
-  const { account } = useContext(DataContext);
-
-  const openDialog = () => {
-    setOpen(true);
-  };
-
+function Footer() {
   return (
-    <div className="container">
-      {account ? (
-        <Dashboard />
-      ) : (
-        <>
-          <div className="cover-page">
-            <header>
-              <h1>Expense Tracker</h1>
-              <p className="tagline">Track Your Expenses Effortlessly</p>
-            </header>
-
-            <section className="quote-section">
-              <blockquote className="quote">
-                "A penny saved is a penny earned."
-              </blockquote>
-            </section>
-
-            <section className="facts-section">
-              <h2>Why Choose Us?</h2>
-              <ul>
-                <li>Real-time expense tracking</li>
-                <li>Easy-to-use interface</li>
-                <li>Detailed insights and reports</li>
-                <li>Secure and private</li>
-              </ul>
-            </section>
-
-            <p>Login to start tracking your all expenses</p>
-
-            <Button
-              style={{ marginRight: 40, width: 150, height: 50, fontSize: 16 }}
-              variant="contained"
-              color="primary"
-              onClick={openDialog}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              Login
-            </Button>
-          </div>
-        </>
-      )}
-      <LoginDialog open={open} setOpen={setOpen} />
-    </div>
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-logo">
+          {/* Your website logo */}
+          <img src={Logo} alt="Your Logo" />
+        </div>
+        <div className="social-media" style={{marginRight: 50}}>
+          <a href="https://www.facebook.com/your-facebook" target="_blank" rel="noopener noreferrer">
+            <FaFacebook className="social-icon" />
+          </a>
+          <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer">
+            <FaTwitter className="social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="social-icon" />
+          </a>
+           <a href="https://www.instagram.com/your-instagram" target="_blank" rel="noopener noreferrer">
+            <FaEnvelope className="social-icon" />
+          </a> 
+        </div>
+      </div>
+    </footer>
   );
 }
+
+export default Footer;
