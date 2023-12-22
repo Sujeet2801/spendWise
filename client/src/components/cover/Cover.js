@@ -3,18 +3,18 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 
 // Data Provider
-import { DataContext } from "../../context/DataProvider";
+// import { DataContext } from "../../context/DataProvider";
 
 // CSS File
 import "./Cover.css";
 
 // Login Dialog & Dashboard page
-import LoginDialog from "../../pages/Login/loginDialog";
-import Dashboard from "../../pages/dashboard/Dashboard";
+// import LoginDialog from "../../pages/Login/loginDialog";
+// import Dashboard from "../../pages/dashboard/Dashboard";
 
 export default function Cover() {
   const [open, setOpen] = useState(false);
-  const { account } = useContext(DataContext);
+  // const { account } = useContext(DataContext);
 
   const openDialog = () => {
     setOpen(true);
@@ -22,13 +22,10 @@ export default function Cover() {
 
   return (
     <div className="container">
-      {account ? (
-        <Dashboard />
-      ) : (
         <>
           <div className="cover-page">
             <header>
-              <h1>Expense Tracker</h1>
+              <h1>spendWise</h1>
               <p className="tagline">Track Your Expenses Effortlessly</p>
             </header>
 
@@ -63,8 +60,8 @@ export default function Cover() {
             </Button>
           </div>
         </>
-      )}
-      <LoginDialog open={open} setOpen={setOpen} />
+      
+      {/* <LoginDialog open={open} setOpen={setOpen} /> */}
     </div>
   );
 }
